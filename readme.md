@@ -21,7 +21,7 @@ This sample also demonstrates data filtering by role, thanks to Realm's extensiv
 - 🔑 Realm authentication
 - 🙋‍♂️ Data filtering by Realm User Role.
 
-## Quickstart:
+## Quickstart
 
 _The following steps presume the use of npm, though yarn works as well._
 
