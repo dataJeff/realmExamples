@@ -1,10 +1,15 @@
-import ChartsEmbedSDK, { getRealmUserToken }from "@mongodb-js/charts-embed-dom";
-import { Stitch, UserPasswordCredential } from 'mongodb-stitch-browser-sdk'
-import "regenerator-runtime/runtime";
+//import ChartsEmbedSDK, { getRealmUserToken }from "@mongodb-js/charts-embed-dom";
+//const ChartsEmbedSDK = require("@mongodb-js/charts-embed-dom");
+//import { Stitch, UserPasswordCredential } from 'mongodb-stitch-browser-sdk'
+//const SDK = require('mongodb-stitch-browser-sdk');
+//const RUNTIME = require("regenerator-runtime/runtime");
 
-const client = Stitch.initializeAppClient(
-  'chartswebapp-hxzsr', // Optional: ~REPLACE~ with your Realm App ID
-); 
+const client = stitch.Stitch.initializeAppClient(
+    'chartsembedd-idmlf'
+//  'chartswebapp-hxzsrt', // Optional: ~REPLACE~ with your Realm App ID
+);
+
+const ChartsEmbedSDK = window.ChartsEmbedSDK;
 
 function getUser() {
   return document.getElementById("username").value;
@@ -31,16 +36,17 @@ document
   .addEventListener("click", () => logOut());
 
 async function tryLogin() {
-  const credential = new UserPasswordCredential(getUser(), getPass())
+  const credential = new stitch.UserPasswordCredential(getUser(), getPass())
   client.auth.loginWithCredential(credential).then(() =>
   {
     const sdk = new ChartsEmbedSDK({
-      baseUrl: "https://charts.mongodb.com/charts-bi-atlas-dev-xfzvk", // Optional: ~REPLACE~ with your Charts URL
-      getUserToken: () => getRealmUserToken(client),
+	baseUrl: "https://charts.mongodb.com/charts-bi-atlas-dev-xfzvk", // Optional: ~REPLACE~ with your Charts URL
+	getUserToken: () => ChartsEmbedSDK.getRealmUserToken(client),
     });
 
-    const chart = sdk.createChart({
-      chartId: "3595b51c-7db1-48f4-a60d-202f79f64115", // Optional: ~REPLACE~ with your Chart ID 
+      const chart = sdk.createChart({
+	  chartId: "dec89274-b39e-42a5-8a57-18022ddc2362", // Optional: ~REPLACE~ with your Chart ID
+
     });
 
     chart.render(document.getElementById("chart"));
