@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@mongodb-js/charts-embed-dom": "^1.0.0",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "mongodb-stitch-browser-sdk": "^4.8.0",
     "parcel": "^1.12.4",
     "regenerator-runtime": "^0.13.3",
